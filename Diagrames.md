@@ -4,27 +4,26 @@
 sequenceDiagram
     participant Arduino
     participant LED
-    participant Sèrie
+    participant Serial
 
     rect rgb(240, 240, 240)
         Arduino->>Arduino: setup()
     end
 
-    loop Cada 2 segons
+    loop Every 2 seconds
         rect rgb(224, 224, 224)
             Arduino->>LED: digitalWrite(HIGH)
-            Arduino->>Sèrie: Serial.println("ENCÈS")
-            bucle DURADA mil·lisegons
-                Arduino->>Arduino: delay(DURADA)
+            Arduino->>Serial: Serial.println("ON")
+            loop DELAY milliseconds
+                Arduino->>Arduino: delay(DELAY)
             end
             Arduino->>LED: digitalWrite(LOW)
-            Arduino->>Sèrie: Serial.println("APAGAT")
-            bucle DURADA mil·lisegons
-                Arduino->>Arduino: delay(DURADA)
+            Arduino->>Serial: Serial.println("OFF")
+            loop DELAY milliseconds
+                Arduino->>Arduino: delay(DELAY)
             end
         end
     end
-
 ```
 
 #
