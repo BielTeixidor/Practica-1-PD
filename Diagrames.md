@@ -1,4 +1,4 @@
-#Diagrama de temps
+# Diagrama de temps
 
 ```mermaid
 sequenceDiagram
