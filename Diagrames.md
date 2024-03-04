@@ -10,7 +10,7 @@ sequenceDiagram
         Arduino->>Arduino: setup()
     end
 
-    bucle Cada 2 segons
+    loop Cada 2 segons
         rect rgb(224, 224, 224)
             Arduino->>LED: digitalWrite(HIGH)
             Arduino->>Sèrie: Serial.println("ENCÈS")
