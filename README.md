@@ -160,6 +160,3 @@ void loop() {
  La frequencia registrada en l'osciloscopi es de 4701 Khz.
 ## 4.5 - Conclusions
  En general, es pot concloure que l'accés directe als registres sense utilitzar el port sèrie permet aconseguir freqüències més altes en comparació amb l'ús de les funcions d'Arduino amb el port sèrie. 
-
-
-# 6 - Tiempo libre del procesador
