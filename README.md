@@ -85,7 +85,7 @@ En aquest apartat, l'objectiu és mesurar la freqüència màxima d'entrada/sort
 ```c++
  #include <Arduino.h>
 
-   int led = 14; 
+   int led = 2; 
 
    void setup() {                
       pinMode(led, OUTPUT);   
@@ -98,15 +98,16 @@ En aquest apartat, l'objectiu és mesurar la freqüència màxima d'entrada/sort
       Serial.println("OFF");      
       digitalWrite(led, LOW);
    }
+
    ```
-La frecuencia registrada en l'osciloscopi es de 29.81 Khz.
+La frecuencia registrada en l'osciloscopi es de 18.06 Khz.
 
 ## 4.2 - Amb l'enviament pel port sèrie i accedint directament als registres:
 
 ```c++
- #include <Arduino.h>
+  #include <Arduino.h>
 
-   int led = 14;
+   int led = 2;
    uint32_t *gpio_out = (uint32_t *)GPIO_OUT_REG;
 
    void setup() {                
@@ -121,13 +122,13 @@ La frecuencia registrada en l'osciloscopi es de 29.81 Khz.
       *gpio_out ^= (1 << led);
    }
 ```
-La frequencia registrada en l'osciloscopi es de 29.77 Khz.
+La frequencia registrada en l'osciloscopi es de 18.47 Khz.
 
 ## 4.3 - Sense l'enviament pel port sèrie del missatge i utilitzant les funcions d'Arduino:
 
 ```c++
 #include <Arduino.h>
-int led = 14; 
+int led = 2; 
 
 void setup() {                
    pinMode(led, OUTPUT);   
@@ -137,15 +138,16 @@ void loop() {
    digitalWrite(led, HIGH);
    digitalWrite(led, LOW);
 }
+
 ```
-La frequencia registrada en l'osciloscopi es de 1720 Khz.
+La frequencia registrada en l'osciloscopi es de 3.13 Mhz.
 
 ## 4.4 - Sense l'enviament pel port sèrie i accedint directament als registres:
 
 ```c++
 #include <Arduino.h>
 
-int led = 14; 
+int led = 2; 
 uint32_t *gpio_out = (uint32_t *)GPIO_OUT_REG;
 
 void setup() {                
@@ -156,7 +158,8 @@ void loop() {
    *gpio_out |= (1 << led);
    *gpio_out ^= (1 << led);
 }
+
 ```
- La frequencia registrada en l'osciloscopi es de 4701 Khz.
+ La frequencia registrada en l'osciloscopi es de 10.20 Mhz.
 ## 4.5 - Conclusions
  En general, es pot concloure que l'accés directe als registres sense utilitzar el port sèrie permet aconseguir freqüències més altes en comparació amb l'ús de les funcions d'Arduino amb el port sèrie. 
