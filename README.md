@@ -19,7 +19,7 @@ void loop() {
 ```c++
 #include <Arduino.h>
 
-#define LED_BUILTIN 23
+#define LED_BUILTIN 2
 #define DELAY 1000 //ms
 
 
@@ -47,7 +47,7 @@ Aquest codi mantindrà un bucle infinit en el qual el LED s'encendrà, es enviar
 ```c++
 #include <Arduino.h>
 
-#define LED_BUILTIN 23
+#define LED_BUILTIN 2
 #define DELAY 1000
 
 #define GPIO_OUT_REG 0x3FF4400C
